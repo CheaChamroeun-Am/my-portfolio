@@ -1,33 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@layer base {
+  html {
+    @apply scroll-smooth
   }
-}
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
+    .section {
+      @apply container mx-auto mt-40 px-6 
+    }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+    .section1{
+      @apply container mx-auto px-6 
+    }
   }
-}
+
+
+  
+
+
+  [data-theme="dark"] .bg-buttonColor{
+    @apply bg-[#666666]
+  }
+
+  [data-theme="dark"] .border-buttonColor{
+    @apply border-[#666666]
+  }
+
+
+
+  /* Text */
+  [data-theme="dark"] .text-textColor{
+    @apply text-textColor2
+  }
+
+  [data-theme="dark"] .text-titleColor{
+    @apply text-titleColor2
+  }
+
+  [data-theme="dark"] .text-textContrast{
+    @apply text-textContrast2
+  }
+
+
+  /* Body */
+  [data-theme="dark"] .bg-hero-dark {
+    background-image: none !important; 
+    background-color: #000000; 
+  }
+
+   [data-theme="dark"] .bg-bg{
+    @apply bg-[#111]
+  }
+
+  [data-theme="dark"] .bg-skill{
+    @apply bg-skill2
+  }
+
+
+  [data-theme="dark"] .bg-bodyColor{
+    @apply bg-bodyColor2
+  }
+
+  [data-theme="dark"] .bg-cardHover {
+    @apply bg-cardHover2
+  }
+
+
+  [data-theme="dark"] .bg-item {
+    @apply bg-item2
+  }
+
+  [data-theme="dark"] .bg-textContrast{
+    @apply bg-textContrast2
+  }
+
+  [data-theme="dark"] .bg-blackColor{
+    @apply bg-blackColor2
+  }
+
+  [data-theme="dark"] .border-blackColor{
+    @apply border-blackColor2
+  }
+
+
+
+
+  @keyframes slow-spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .slow-spin {
+    animation: slow-spin 20s linear infinite;
+  }

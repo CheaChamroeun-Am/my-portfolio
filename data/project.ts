@@ -24,22 +24,21 @@ export const projects: projectType[] = [
         date: "July 08 ,2021",
         type: "vuejs",
         short_desc:
-            "I’ve contributed to many Web designs and used my experience to contribute with the projects.",
+            "CamboShoe is a dynamic web application  designed to cater to footwear enthusiasts",
         description: `
-      Kjeybook is a web application that I've built using NextJS, TailwindCSS and Typescript.
-      This website is an application where the user can view a list of books of a specific library and make a request to borrow the book.
-      It also has an admin page where the admin can manage the books and the users request.
+        CamboShoe is a dynamic web application crafted with VueJS, Vuex, NuxtJS, and Vuetify. Designed to cater to footwear enthusiasts, it offers a wide array of shoe options, complete with detailed descriptions for each product. Customers have the convenience of making purchases using their PayPal accounts. Beyond shopping, CamboShoe also features a blog section that delves into the latest fashion trends, providing users with a comprehensive platform for both shopping and fashion insights.
       
-      This web application is the result of my group for the bootcamp project. I am responsible for the leading the frontend team.
-      I am very happy with the result as our application was voted to be Best Project by the bootcamp committee.
+        This web application serves as the culmination of my final project, where I have taken on the roles of both frontend and backend developer.s
+       
     `,
         imageUrl: "/projects/camboshoe/poster.png",
         demo: "",
 
         technologies: [
-            Technologies.nextjs,
-            Technologies.tailwindcss,
-            Technologies.typescript,
+            Technologies.vuejs,
+            Technologies.nuxtjs,
+            Technologies.vuetify,
+            Technologies.vuex,
         ],
 
         screenshots: [
@@ -63,9 +62,13 @@ export const projects: projectType[] = [
         date: "July 08 ,2021",
         type: "vuejs",
         short_desc:
-            "I’ve contributed to many Web designs and used my experience to contribute with the projects.",
-        description:
-            "I’ve contributed to many Web designs and used my experience to contribute with the projects.",
+            "  KIT Point Management System  is an internship reporting system",
+        description: `
+            KIT Point Management System  is an internship reporting system designed for students in KIT to log their hours, track their performance, and access internship information, while enabling administrators to monitor student activities during their internships.
+          
+            This application was created as a client project during my internship, where my role was primarily that of a Frontend developer. In addition to my development duties, I also contributed to the UX/UI aspect of the project, assisting my team in designing user-friendly and aesthetically pleasing interfaces.
+           
+        `,
         imageUrl: "/projects/kpms/poster.jpg",
         demo: "",
 
@@ -93,11 +96,15 @@ export const projects: projectType[] = [
         id: `shuttlebus`,
         title: "Shuttle Bus",
         date: "July 08 ,2021",
-        type: "vuejs",
+        type: "reactjs",
         short_desc:
-            "I’ve contributed to many Web designs and used my experience to contribute with the projects.",
-        description:
-            "I’ve contributed to many Web designs and used my experience to contribute with the projects.",
+            "Shuttle Bus is designed to simplify transportation for students and staff",
+        description: `
+        Shuttle Bus is designed to simplify transportation for students and staff, offering a booking system for shuttle services between locations, alongside administrative tools for efficient transportation schedule management.
+
+        This application was created as a client project during my internship, where I was engaged as a Frontend developer. Together with my team, I was involved in the maintenance of the system, focusing on enhancing and migrating both the user and admin interfaces to be more user-friendly and efficient. In addition to these improvements, we were tasked with integrating new features to meet evolving requirements, showcasing our collective effort to refine and advance the system's capabilities.
+           
+        `,
         imageUrl: "/projects/shuttlebus/poster.png",
         demo: "",
 
@@ -130,9 +137,14 @@ export const projects: projectType[] = [
         date: "July 08 ,2021",
         type: "reactjs",
         short_desc:
-            "I’ve contributed to many Web designs and used my experience to contribute with the projects.",
-        description:
-            "I’ve contributed to many Web designs and used my experience to contribute with the projects.",
+            "Engineernest is designed to help engineers find good job opportunities and startups",
+        description: `
+        Engineernest is designed to help engineers find good job opportunities and startups hire skilled workers without overspending. This platform makes it easier for both groups to connect and meet their needs. 
+    
+              
+        This application was created as a client project during my internship, where my role was primarily that of a Frontend developer. In addition to my development duties, I also contributed to the UX/UI aspect of the project, assisting my team in designing user-friendly and aesthetically pleasing interfaces.
+      
+            `,
         imageUrl: "/projects/engineernest/poster.jpg",
         demo: "",
 

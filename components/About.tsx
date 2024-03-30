@@ -157,27 +157,23 @@ const About = () => {
             <div className="border-b-4 border-b-firstColor w-[7%]"></div> */}
 
             <p className="mt-8">
-              As a web developer with a passion for creating innovative and
-              impactful solutions, I am constantly seeking new challenges and
-              opportunities to grow and learn. My journey as a developer began
-              in 2016 when I enrolled in a Diploma program at Hun Sen Oreang Ov
-              High School. From there, I continued my education at ITC and later
-              KIT, where I focused on learning Django and React.
-            </p>
-
-            <p className="mt-5">
-              My dedication and hard work paid off when I won the CS CUP
-              Cambodia (Computer Science CUP) by earning the top rank. This
-              achievement was a major milestone for me and a testament to my
-              abilities as a developer.
+              As a web developer, my world revolves around designing and coding
+              the parts of websites that people see and interact with. I'm
+              always on the lookout for the latest in web technology, aiming to
+              incorporate cutting-edge trends into my projects. My journey as a
+              developer began in 2021 when I enrolled in my bachelor's degree at
+              Kirirom Institute of Technology, where I focused on learning to
+              develop websites using various frameworks.
             </p>
 
             <p className="mt-5">
               In addition to my technical skills, I am also a strong
-              problem-solver and team player. I am always looking for ways to
-              collaborate and contribute to projects, and I am confident that my
-              expertise and enthusiasm will make me a valuable asset to any
-              team.
+              problem-solver and supportive person, consistently contributing to
+              my team's success by fostering an environment of open
+              communication and mutual support. My commitment to understanding
+              the strengths and challenges of my colleagues allows me to
+              contribute effectively, ensuring that we work together efficiently
+              to achieve our collective goals and drive projects to completion.
             </p>
 
             {/* <div className="mt-8 flex flex-row justify-start">

@@ -3,6 +3,7 @@ import React from "react";
 import Image from "next/image";
 import { Typewriter } from "react-simple-typewriter";
 import { Link, animateScroll as scroll } from "react-scroll";
+import Button from "./Button";
 
 import {
   AiFillFacebook,
@@ -45,7 +46,7 @@ const Hero = () => {
   return (
     <div className="bg-hero-dark bg-[url('/bg-hero.jpg')] w-full h-full bg-cover">
       <div
-        className="section1 flex h-[100vh] items-center justify-center "
+        className="section1 flex h-full md:h-[100vh] py-10 items-center justify-center "
         id="home"
       >
         <div className="grid grid-cols-1 gap-5 lg:grid-cols-2 ">
@@ -102,6 +103,7 @@ const Hero = () => {
                   Hire Me
                 </Link>
               </button>
+              
               <a href="/Am-Cheachamroeun-Resume.pdf" download>
                 <button className="rounded-md border border-buttonColor px-5 py-2 text-titleColor transition-colors duration-500 hover:bg-buttonColor hover:text-white md:px-7 md:py-3  ">
                   Download CV

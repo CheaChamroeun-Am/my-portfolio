@@ -86,7 +86,7 @@ const Project = () => {
           {portfolioList.map((item, index) => (
             <div key={item.id}>
               <div
-                className={`shadow-lg p-5 group hover:bg-cardHover transition duration-500 ${
+                className={`w-full h-[600px] shadow-lg p-5 group hover:bg-cardHover transition duration-500 ${
                   theme === "dark"
                     ? "hover:bg-cardHover2"
                     : "hover:bg-cardHover"
@@ -96,7 +96,7 @@ const Project = () => {
                   <img
                     src={item.imageUrl}
                     alt="poster"
-                    className="w-full max-h-[350px] object-cover"
+                    className="w-full h-[350px] object-cover"
                   />
                   <Link href={`/project/${item.id}`}>
                     <div className=" absolute z-10 -bottom-5 right-10">
@@ -118,24 +118,27 @@ const Project = () => {
                     {item.title}
                   </h3>
                   <p className="mt-3">
-                    Project that you carry out in the design and structure of
-                    the layout, showing the design at the client's request
+                    {item.short_desc} <span>...</span>
                   </p>
                 </div>
 
                 <div className="mt-5 mb-10">
                   <div className="flex items-center flex-wrap gap-3">
-                    <div className="flex gap-2 items-center flex-wrap cursor-pointer text-sm hover:text-firstColor transition duration-300">
-                      <FiGithub />
-                      <p>View</p>
-                    </div>
+                    <Link href="/github/view">
+                      <div className="flex gap-2 items-center flex-wrap cursor-pointer text-sm hover:text-firstColor transition duration-300">
+                        <FiGithub />
 
-                    <div className="flex gap-2 items-center flex-wrap text-sm hover:text-firstColor transition duration-300">
-                      <FaBasketball />
-                      <Link href={`/project/${item.id}`}>
                         <p>View</p>
-                      </Link>
-                    </div>
+                      </div>
+                    </Link>
+
+                    <Link href={`/project/${item.id}`}>
+                      <div className="flex gap-2 items-center flex-wrap text-sm hover:text-firstColor transition duration-300">
+                        <FaBasketball />
+
+                        <p>View</p>
+                      </div>
+                    </Link>
                   </div>
                 </div>
               </div>

@@ -9,6 +9,7 @@ import { useTheme } from "next-themes";
 import { FaMoon, FaSun } from "react-icons/fa";
 
 import { Link, animateScroll as scroll } from "react-scroll";
+// import Link from "next/link";
 
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
@@ -119,6 +120,8 @@ const Navbar = () => {
             >
               Contact
             </Link>
+
+          
 
             <button
               className="relative h-8 w-14 rounded-full bg-gray-600 transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-opacity-50"

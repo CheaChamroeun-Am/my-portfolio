@@ -1,14 +1,48 @@
-import React from "react";
+import React, { useRef } from "react";
+import emailjs from "@emailjs/browser";
+import { Bounce, ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+
 import { LuSend } from "react-icons/lu";
 import { AiOutlineMail } from "react-icons/ai";
 import { BsMessenger } from "react-icons/bs";
 import { BsWhatsapp } from "react-icons/bs";
 
-import { useRouter } from "next/navigation";
-
 import { useTranslation } from "next-i18next";
 
 const Contact = () => {
+  const form = useRef<HTMLFormElement>(null);
+
+  const sendEmail = (e: any) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm("service_4i6zfqm", "template_i1d63z9", form.current, {
+        publicKey: "W9BhK8LOIBqUNNmsy",
+      })
+      .then(
+        (result) => {
+          toast.success("Email send successfully !", {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            transition: Bounce,
+          });
+          if (form.current) {
+            form.current.reset(); // Reset the form here after successful email sending
+          }
+        },
+        (error) => {
+          console.log("FAILED...", error.text);
+        }
+      );
+  };
+
   const { t } = useTranslation("common");
 
   const cards = [
@@ -31,6 +65,7 @@ const Contact = () => {
 
   return (
     <div id="contact" className="pb-20">
+      <ToastContainer />
       <div className="section">
         <div className="text-center">
           <p className="text-center">Get in touch</p>
@@ -62,55 +97,60 @@ const Contact = () => {
             ))}
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            <div>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                className="w-full px-4 py-2 border rounded-lg"
-                placeholder="Name"
-              />
-            </div>
-            <div>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                className="w-full px-4 py-2 border rounded-lg"
-                placeholder="Email"
-              />
-            </div>
+          <form ref={form} onSubmit={sendEmail}>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              <div>
+                <input
+                  type="text"
+                  id="user_name"
+                  name="user_name"
+                  className="w-full px-4 py-2 border rounded-lg"
+                  placeholder="Name"
+                />
+              </div>
+              <div>
+                <input
+                  type="email"
+                  id="user_email"
+                  name="user_email"
+                  className="w-full px-4 py-2 border rounded-lg"
+                  placeholder="Email"
+                />
+              </div>
 
-            <div className="col-span-1 md:col-span-2">
-              <input
-                type="text"
-                id="email"
-                name="email"
-                className="w-full px-4 py-2 border rounded-lg"
-                placeholder="Subject"
-              />
-            </div>
+              <div className="col-span-1 md:col-span-2">
+                <input
+                  type="text"
+                  id="user_subject"
+                  name="user_subject"
+                  className="w-full px-4 py-2 border rounded-lg"
+                  placeholder="Subject"
+                />
+              </div>
 
-            <div className="col-span-1 md:col-span-2">
-              <textarea
-                id="message"
-                name="message"
-                rows={8}
-                className="w-full px-4 py-2 border rounded-lg"
-                placeholder="Enter your message"
-              />
-            </div>
+              <div className="col-span-1 md:col-span-2">
+                <textarea
+                  id="message"
+                  name="user_message"
+                  rows={8}
+                  className="w-full px-4 py-2 border rounded-lg"
+                  placeholder="Enter your message"
+                />
+              </div>
 
-            <div className="col-span-1 md:col-span-2">
-              <button className="text-textContrast bg-blackColor flex gap-5 items-center rounded-md py-2 px-5 md:py-3 md:px-7 bg-primary2 hover:bg-primary1 transition-all duration-500 from-primary to-secondary hover:bg-blend-darken">
-                Send
-                <span className="text-xl">
-                  <LuSend />
-                </span>
-              </button>
+              <div className="col-span-1 md:col-span-2">
+                <button
+                  type="submit"
+                  className="text-textContrast bg-blackColor flex gap-5 items-center rounded-md py-2 px-5 md:py-3 md:px-7 bg-primary2 hover:bg-primary1 transition-all duration-500 from-primary to-secondary hover:bg-blend-darken"
+                >
+                  Send
+                  <span className="text-xl">
+                    <LuSend />
+                  </span>
+                </button>
+              </div>
             </div>
-          </div>
+          </form>
         </div>
       </div>
     </div>

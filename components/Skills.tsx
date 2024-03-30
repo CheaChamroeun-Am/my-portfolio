@@ -5,6 +5,7 @@ import { motion, useAnimation } from "framer-motion";
 import { SiNextdotjs, SiVuetify } from "react-icons/si";
 import { BiLogoVuejs, BiLogoReact, BiLogoTailwindCss } from "react-icons/bi";
 import { TbBrandNuxt } from "react-icons/tb";
+import { FaGitAlt } from "react-icons/fa";
 
 const SkillBar = ({ name, percentage, icon }: any) => {
   const controls = useAnimation();
@@ -70,13 +71,13 @@ const Skills = () => {
       icon: <BiLogoVuejs className="text-2xl" />,
     },
     {
-      name: "Vuetify",
-      percentage: 45,
-      icon: <BiLogoReact className="text-2xl" />,
+      name: "Github / Gitlab",
+      percentage: 60,
+      icon: <FaGitAlt className="text-2xl" />,
     },
     {
       name: "Tailwind",
-      percentage: 65,
+      percentage: 70,
       icon: <TbBrandNuxt className="text-2xl" />,
     },
     // {
@@ -94,22 +95,22 @@ const Skills = () => {
   const skill2 = [
     {
       name: "Vue Js",
-      percentage: 65,
+      percentage: 70,
       icon: <SiNextdotjs className="text-2xl" />,
     },
     {
       name: "React Js",
-      percentage: 65,
+      percentage: 70,
       icon: <BiLogoVuejs className="text-2xl" />,
     },
     {
       name: "Nuxt Js",
-      percentage: 65,
+      percentage: 70,
       icon: <BiLogoReact className="text-2xl" />,
     },
     {
       name: "Next Js",
-      percentage: 65,
+      percentage: 70,
       icon: <TbBrandNuxt className="text-2xl" />,
     },
     // {

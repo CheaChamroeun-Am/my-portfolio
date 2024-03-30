@@ -2,12 +2,18 @@
 import React, { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { projectType, projects } from "@/data/project";
+import { IoArrowBack } from "react-icons/io5";
 import {
   FaRegCalendarAlt,
   FaArrowLeft,
   FaArrowRight,
   FaTimes,
 } from "react-icons/fa";
+
+import Link from "next/link";
+import Loading from "@/components/Loading";
+
+// import "../../../components/style.css";
 
 const ProjectDetail = () => {
   const pathname = usePathname();
@@ -23,8 +29,18 @@ const ProjectDetail = () => {
   }, [projectId]);
 
   if (!project) {
-    return <div>Project not found</div>;
+    return <Loading/>;
   }
+
+  const handleImageClick = (screenshot : any, index : any) => {
+    setSelectedImg(screenshot);
+    setSelectedIndex(index);
+  };
+
+  const closeGallery = () => {
+    setSelectedImg(null);
+    setSelectedIndex(null);
+  };
 
   const navigate = (direction: "prev" | "next") => {
     setSelectedIndex((prevIndex) => {
@@ -44,121 +60,132 @@ const ProjectDetail = () => {
   };
 
   return (
-    <div className="section1">
-      <div className="mt-10 flex flex-col flex-wrap space-x-10 lg:flex-row">
-        <div>
-          <img
-            src={project.imageUrl}
-            alt={project.title}
-            className="max-h-[300px] max-w-[500px] object-cover "
-          />
-        </div>
-        <div>
-          <h2 className="text-3xl font-bold ">{project.title}</h2>
+    <div className="p-5">
+      <div className="border border-3 border-gray-500">
+        {/* <button className="border-r border-b border-black">Back</button> */}
+        <Link href="/">
+          <button className="border-r border-b border-gray-500 px-5 py-2 text-titleColor transition-colors duration-500 hover:bg-buttonColor hover:text-white md:px-7 md:py-3  ">
+            <span>Back</span>
+          </button>
+        </Link>
+        <div className="section1 py-5">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 lg:gap-10">
+            <div className="col-span-1">
+              <img
+                src={project.imageUrl}
+                alt={project.title}
+                className="h-[300px] w-full object-cover "
+              />
+            </div>
 
-          <p className="mt-5 whitespace-pre-line">
-            {project.description.trim()}
-          </p>
+            <div className="col-span-2">
+              <h2 className="text-3xl font-bold ">{project.title}</h2>
 
-          <div className="mt-5 flex items-center gap-2">
-            <FaRegCalendarAlt />
-            <span>{project.date}</span>
-          </div>
+              <p className="mt-5 whitespace-pre-line">
+                {project.description.trim()}
+              </p>
 
-          <div className="mt-5 flex flex-wrap items-center gap-4">
-            <h3 className="text-lg font-bold">Technologies : </h3>
-            <div className="flex flex-wrap gap-2">
-              {project.technologies.map((tech, index) => {
-                return (
-                  <div
-                    key={index}
-                    className={`
+              <div className="mt-5 flex items-center gap-2">
+                <FaRegCalendarAlt />
+                <span>{project.date}</span>
+              </div>
+
+              <div className="mt-5 flex flex-wrap items-center gap-4">
+                <h3 className="text-lg font-bold">Technologies : </h3>
+                <div className="flex flex-wrap gap-2">
+                  {project.technologies.map((tech, index) => {
+                    return (
+                      <div
+                        key={index}
+                        className={`
                       flex items-center justify-start space-x-2
                       p-1 px-4
                     `}
-                  >
-                    {tech.logo && (
-                      <img src={tech.logo} alt="" className="h-5" />
-                    )}
-                    {tech.name && <span>{tech.name}</span>}
-                  </div>
-                );
-              })}
+                      >
+                        {tech.logo && (
+                          <img src={tech.logo} alt="" className="h-5" />
+                        )}
+                        {tech.name && <span>{tech.name}</span>}
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
 
-      <h3 className="mt-5 text-lg font-bold">Project Screenshots : </h3>
-      <span className="text-xs font-medium text-black text-opacity-50">
-        (click to view bigger image)
-      </span>
+          <h3 className="mt-5 text-lg font-bold">Project Screenshots : </h3>
+          <span className="text-xs font-medium text-black text-opacity-50">
+            (click to view bigger image)
+          </span>
 
-      <div className="mt-5 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4">
-        {project.screenshots.map((screenshot, index) => (
-          <div
-            key={index}
-            className="relative cursor-pointer overflow-hidden"
-          >
-            <button onClick={() => setSelectedImg(screenshot)}>
-              {" "}
+          <div className="mt-5 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4">
+            {project.screenshots.map((screenshot, index) => (
+              <div
+                key={index}
+                className="relative cursor-pointer overflow-hidden"
+              >
+                <button onClick={() => handleImageClick(screenshot, index)}>
+                  {" "}
+                  <img
+                    src={screenshot}
+                    alt={`${project.title}`}
+                    className="h-full w-full object-cover"
+                  />
+                </button>
+              </div>
+            ))}
+          </div>
+
+          {selectedImg && selectedIndex !== null && (
+            <button
+              className="fixed left-0 top-0 z-50 flex h-full w-full items-center justify-center bg-black bg-opacity-75"
+              onClick={closeGallery}
+            >
+              <FaArrowLeft
+                className={`absolute left-10 text-2xl ${
+                  selectedIndex === 0
+                    ? "cursor-default text-gray-500"
+                    : "cursor-pointer text-white"
+                }`}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  if (selectedIndex > 0) {
+                    navigate("prev");
+                  }
+                }}
+              />
+              <FaTimes
+                className="absolute right-10 top-10 cursor-pointer text-2xl text-white"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setSelectedImg(null);
+                  setSelectedIndex(null);
+                }}
+              />
               <img
-                src={screenshot}
-                alt={`${project.title}`}
-                className="h-full w-full object-cover"
+                src={selectedImg}
+                alt="Selected"
+                className="max-h-full max-w-[80%] p-4"
+                onClick={(e) => e.stopPropagation()} // Prevent click inside the image from closing the modal
+              />
+              <FaArrowRight
+                className={`absolute right-10 text-2xl ${
+                  selectedIndex === project.screenshots.length - 1
+                    ? "cursor-default text-gray-500"
+                    : "cursor-pointer text-white"
+                }`}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  if (selectedIndex < project.screenshots.length - 1) {
+                    navigate("next");
+                  }
+                }}
               />
             </button>
-          </div>
-        ))}
+          )}
+        </div>
       </div>
-
-      {selectedImg && selectedIndex !== null && (
-        <button
-          className="fixed left-0 top-0 z-50 flex h-full w-full items-center justify-center bg-black bg-opacity-75"
-          onClick={() => setSelectedImg(null)}
-        >
-          <FaArrowLeft
-            className={`absolute left-10 text-2xl ${
-              selectedIndex === 0
-                ? "cursor-default text-gray-500"
-                : "cursor-pointer text-white"
-            }`}
-            onClick={(e) => {
-              e.stopPropagation();
-              if (selectedIndex > 0) {
-                navigate("prev");
-              }
-            }}
-          />
-          <FaTimes
-            className="absolute right-10 top-10 cursor-pointer text-2xl text-white"
-            onClick={(e) => {
-              e.stopPropagation();
-              setSelectedImg(null);
-              setSelectedIndex(null);
-            }}
-          />
-          <img
-            src={selectedImg}
-            alt="Selected"
-            className="max-h-full max-w-[80%] p-4"
-            onClick={(e) => e.stopPropagation()} // Prevent click inside the image from closing the modal
-          />
-          <FaArrowRight
-            className={`absolute right-10 text-2xl ${
-              selectedIndex === project.screenshots.length - 1
-                ? "cursor-default text-gray-500"
-                : "cursor-pointer text-white"
-            }`}
-            onClick={(e) => {
-              e.stopPropagation();
-              if (selectedIndex < project.screenshots.length - 1) {
-                navigate("next");
-              }
-            }}
-          />
-        </button>
-      )}
     </div>
   );
 };

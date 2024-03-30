@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import emailjs from "@emailjs/browser";
 import { Bounce, ToastContainer, toast } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 
 import { LuSend } from "react-icons/lu";
 import { AiOutlineMail } from "react-icons/ai";
@@ -13,34 +13,46 @@ import { useTranslation } from "next-i18next";
 const Contact = () => {
   const form = useRef<HTMLFormElement>(null);
 
-  const sendEmail = (e: any) => {
+  const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    emailjs
-      .sendForm("service_4i6zfqm", "template_i1d63z9", form.current, {
-        publicKey: "W9BhK8LOIBqUNNmsy",
-      })
-      .then(
-        (result) => {
-          toast.success("Email send successfully !", {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-            transition: Bounce,
-          });
-          if (form.current) {
-            form.current.reset(); // Reset the form here after successful email sending
+    // Check form.current is not null before proceeding
+    if (form.current) {
+      const formElement = form.current; // Capture the current form reference
+      emailjs
+        .sendForm(
+          `${process.env.NEXT_PUBLIC_YOUR_SERVICE_ID}`,
+          `${process.env.NEXT_PUBLIC_YOUR_TEMPLATE_ID}`,
+          formElement,
+          `${process.env.NEXT_PUBLIC_YOUR_PUBLIC_KEY}`
+        )
+        .then(
+          (result) => {
+            toast.success("Email send successfully !", {
+              position: "top-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "light",
+              transition: Bounce,
+            });
+            // Safe to call reset as we're using the captured reference
+            formElement.reset();
+          },
+          (error) => {
+            console.log("FAILED...", error.text);
+
+           
+            
           }
-        },
-        (error) => {
-          console.log("FAILED...", error.text);
-        }
-      );
+        );
+    } else {
+      // Handle the case where form.current is null if necessary
+      console.log("Form is not available.");
+    }
   };
 
   const { t } = useTranslation("common");

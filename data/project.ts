@@ -66,7 +66,10 @@ export const projects: projectType[] = [
         description: `
             KIT Point Management System  is an internship reporting system designed for students in KIT to log their hours, track their performance, and access internship information, while enabling administrators to monitor student activities during their internships.
           
-            This application was created as a client project during my internship, where my role was primarily that of a Frontend developer. In addition to my development duties, I also contributed to the UX/UI aspect of the project, assisting my team in designing user-friendly and aesthetically pleasing interfaces.
+            This application was created as an internal project during my internship, where I was engaged as a Frontend developer. I've developed several features for KPMS and am currently in
+            the process of migrating the system to a new technology to
+            enhance its functionality and performance.
+            
            
         `,
         imageUrl: "/projects/kpms/poster.jpg",
@@ -102,7 +105,7 @@ export const projects: projectType[] = [
         description: `
         Shuttle Bus is designed to simplify transportation for students and staff, offering a booking system for shuttle services between locations, alongside administrative tools for efficient transportation schedule management.
 
-        This application was created as a client project during my internship, where I was engaged as a Frontend developer. Together with my team, I was involved in the maintenance of the system, focusing on enhancing and migrating both the user and admin interfaces to be more user-friendly and efficient. In addition to these improvements, we were tasked with integrating new features to meet evolving requirements, showcasing our collective effort to refine and advance the system's capabilities.
+        This application was created as an internal project during my internship, where I was engaged as a Frontend developer. Together with my team, I was involved in the maintenance of the system, focusing on enhancing and migrating both the user and admin interfaces to be more user-friendly and efficient. In addition to these improvements, we were tasked with integrating new features to meet evolving requirements, showcasing our collective effort to refine and advance the system's capabilities.
            
         `,
         imageUrl: "/projects/shuttlebus/poster.png",

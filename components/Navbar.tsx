@@ -163,7 +163,7 @@ const Navbar = () => {
             {toggle ? (
               <AiOutlineClose
                 size={25}
-                className="mr-4 cursor-pointer"
+                className="mr-4 cursor-pointer text-white"
                 style={{
                   transition: "transform 0.5s ease",
                   transform: shouldSpin ? "rotate(360deg)" : "rotate(0deg)",

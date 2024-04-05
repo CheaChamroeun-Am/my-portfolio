@@ -51,13 +51,13 @@ const Hero = () => {
       >
         <div className="grid grid-cols-1 gap-5 lg:grid-cols-2 ">
           <div className="order-last lg:order-first">
-            <h1 className="text-3xl font-bold md:text-4xl lg:text-4xl xl:text-5xl text-titleColor">
+            <h1 data-aos="fade-up" className="text-3xl font-bold md:text-4xl lg:text-4xl xl:text-5xl text-titleColor">
               Hi, I am
             </h1>
-            <h1 className="mt-2 break-words text-3xl font-bold md:text-4xl lg:text-4xl xl:text-5xl text-titleColor">
+            <h1 data-aos="fade-up" className="mt-2 break-words text-3xl font-bold md:text-4xl lg:text-4xl xl:text-5xl text-titleColor">
               Am Cheachamroeun
             </h1>
-            <h2 className="mt-5 text-2xl font-bold md:text-3xl text-titleColor">
+            <h2 className="mt-5 text-2xl font-bold md:text-3xl text-titleColor" data-aos="fade-up">
               <Typewriter
                 words={["Frontend Developer"]}
                 loop={0}
@@ -70,7 +70,7 @@ const Hero = () => {
                 onType={handleType}
               />
             </h2>
-            <p className="mt-5">
+            <p className="mt-5" data-aos="fade-up">
               Thank you for stopping by my portfolio website! I appreciate your
               interest in getting to know more about my professional journey and
               the work I do as a web developer. This site is a comprehensive
@@ -82,7 +82,7 @@ const Hero = () => {
               Enjoy your visit!
             </p>
 
-            <div className="mt-5 flex flex-wrap gap-5">
+            <div className="mt-5 flex flex-wrap gap-5" data-aos="fade-up">
               {socials.map((social) => (
                 <a href={social.href} target="_blank" key={social.href}>
                   {social.icon}
@@ -90,7 +90,7 @@ const Hero = () => {
               ))}
             </div>
 
-            <div className="mt-10 flex gap-5">
+            <div className="mt-10 flex gap-5" data-aos="fade-up">
               <button className="rounded-md text-textContrast bg-blackColor px-5 py-2 md:px-7 md:py-3">
                 <Link
                   to="contact"
@@ -111,7 +111,7 @@ const Hero = () => {
               </a>
             </div>
           </div>
-          <div className="order-first lg:order-last">
+          <div className="order-first lg:order-last" data-aos="fade-up">
             <Image
               src="/profile1.png"
               alt="hero"

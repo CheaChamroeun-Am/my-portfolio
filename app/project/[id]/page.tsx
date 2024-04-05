@@ -69,7 +69,7 @@ const ProjectDetail = () => {
           </button>
         </Link>
         <div className="section1 py-5">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 lg:gap-10">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 lg:gap-10" data-aos="fade-up">
             <div className="col-span-1">
               <img
                 src={project.imageUrl}
@@ -114,12 +114,12 @@ const ProjectDetail = () => {
             </div>
           </div>
 
-          <h3 className="mt-5 text-lg font-bold">Project Screenshots : </h3>
-          <span className="text-xs font-medium text-black text-opacity-50">
+          <h3 className="mt-5 text-lg font-bold" data-aos="fade-up">Project Screenshots : </h3>
+          <span className="text-xs font-medium text-black text-opacity-50" data-aos="fade-up">
             (click to view bigger image)
           </span>
 
-          <div className="mt-5 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-5 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4" data-aos="fade-up">
             {project.screenshots.map((screenshot, index) => (
               <div
                 key={index}

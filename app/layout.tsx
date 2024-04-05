@@ -9,6 +9,9 @@ import { usePathname } from "next/navigation";
 import { title } from "process";
 import { useEffect } from "react";
 
+import AOS from "aos";
+import 'aos/dist/aos.css';
+
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800", "900"],
@@ -20,18 +23,17 @@ const poppins = Poppins({
 //   description: "This is my portfolio website",
 // };
 
-
-
-
 export default function RootLayout({ children }: any) {
+  
+  useEffect(() => {
+    AOS.init();
+  }, []);
 
   useEffect(() => {
     document.title = "Am Cheachamroeun";
-  
-  })
+  });
 
   const currentPath = usePathname();
-
 
   const noNavbarPaths = ["/github/view"];
 

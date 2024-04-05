@@ -1,5 +1,5 @@
 "use client";
-import React, { useTransition, useState } from "react";
+import React, { useTransition, useState, useEffect } from "react";
 import Image from "next/image";
 import { FaAward } from "react-icons/fa";
 import { FiUsers } from "react-icons/fi";
@@ -59,6 +59,7 @@ const TAB_DATA = [
 ];
 
 const About = () => {
+
   const cards = [
     {
       icon: <FaAward className="text-primary text-[30px]" />,
@@ -124,9 +125,9 @@ const About = () => {
           </div>
 
           <div>
-            <p>My intro</p>
+            <p data-aos="fade-up">My intro</p>
 
-            <div className="relative inline-block">
+            <div className="relative inline-block" data-aos="fade-up">
               <div className="bg-[#eeb1be] w-8 md:w-14 h-7 md:h-10 absolute bottom-2 md:bottom-3 right-0"></div>
               <h2 className="font-title text-titleColor mt-2 text-2xl font-bold leading-tight relative z-10 md:text-3xl lg:text-3xl xl:text-4xl 2xl:text-4xl">
                 About Me.
@@ -156,7 +157,7 @@ const About = () => {
             </p>
             <div className="border-b-4 border-b-firstColor w-[7%]"></div> */}
 
-            <p className="mt-8">
+            <p className="mt-8" data-aos="fade-up">
               As a web developer, my world revolves around designing and coding
               the parts of websites that people see and interact with. I'm
               always on the lookout for the latest in web technology, aiming to
@@ -166,7 +167,7 @@ const About = () => {
               develop websites using various frameworks.
             </p>
 
-            <p className="mt-5">
+            <p className="mt-5" data-aos="fade-up">
               In addition to my technical skills, I am also a strong
               problem-solver and supportive person, consistently contributing to
               my team's success by fostering an environment of open
@@ -205,7 +206,7 @@ const About = () => {
                 : "No content found"}
             </div> */}
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-10" data-aos="fade-up">
               <div className="flex gap-3 items-center">
                 <FaRegCalendarAlt className="text-firstColor text-xl" />
                 <p>
@@ -245,7 +246,9 @@ const About = () => {
                 <TfiEmail className="text-firstColor text-xl" />
                 <p>
                   <span className="font-bold">Email:</span>{" "}
-                  <span>amcheachamroeun20@kit.edu.kh</span>
+                  <span style={{ wordBreak: 'break-word' }}>
+                    amcheachamroeun20@kit.edu.kh
+                  </span>
                 </p>
               </div>
               <div className="flex gap-3 items-center">

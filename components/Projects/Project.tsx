@@ -43,16 +43,16 @@ const Project = () => {
     <div id="projects" className="mt-40 bg-bodyColor py-20">
       <div className="section1 ">
         <div className="text-center">
-          <p className="text-center">Recently Work</p>
+          <p className="text-center" data-aos="fade-up">Recently Work</p>
           <div className="relative inline-block mt-5">
-            <div className="bg-secondColor w-8 md:w-12 h-7 md:h-9 absolute bottom-2 md:bottom-3 right-0"></div>
-            <h2 className="font-title mt-2 text-2xl font-bold leading-tight text-titleColor relative z-10 md:text-3xl lg:text-3xl xl:text-4xl 2xl:text-4xl">
+            <div data-aos="fade-up" className="bg-secondColor w-8 md:w-12 h-7 md:h-9 absolute bottom-2 md:bottom-3 right-0"></div>
+            <h2 data-aos="fade-up" className="font-title mt-2 text-2xl font-bold leading-tight text-titleColor relative z-10 md:text-3xl lg:text-3xl xl:text-4xl 2xl:text-4xl">
               Project.
             </h2>
           </div>
         </div>
 
-        <div className="mt-10 flex flex-row flex-wrap justify-center  gap-10 px-4">
+        <div className="mt-10 flex flex-row flex-wrap justify-center  gap-10 px-4" data-aos="fade-up">
           <button
             onClick={() => filterPortfolio("All")}
             className={`text-project rounded-md 
@@ -82,7 +82,7 @@ const Project = () => {
           </button>
         </div>
 
-        <div className="mt-10 grid grid-cols-1 content-center items-center gap-5 md:grid-cols-2 lg:grid-cols-3 ">
+        <div data-aos="fade-up" className="mt-10 grid grid-cols-1 content-center items-center gap-5 md:grid-cols-2 lg:grid-cols-3 ">
           {portfolioList.map((item, index) => (
             <div key={item.id}>
               <div

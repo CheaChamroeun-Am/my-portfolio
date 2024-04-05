@@ -44,9 +44,6 @@ const Contact = () => {
           },
           (error) => {
             console.log("FAILED...", error.text);
-
-           
-            
           }
         );
     } else {
@@ -80,8 +77,10 @@ const Contact = () => {
       <ToastContainer />
       <div className="section">
         <div className="text-center">
-          <p className="text-center">Get in touch</p>
-          <div className="relative inline-block mt-5">
+          <p className="text-center" data-aos="fade-up">
+            Get in touch
+          </p>
+          <div className="relative inline-block mt-5" data-aos="fade-up">
             <div className="bg-secondColor w-8 md:w-12 h-7 md:h-9 absolute bottom-2 md:bottom-3 right-0"></div>
             <h2 className="font-title mt-2 text-2xl font-bold leading-tight text-titleColor relative z-10 md:text-3xl lg:text-3xl xl:text-4xl 2xl:text-4xl">
               Contact.
@@ -91,8 +90,8 @@ const Contact = () => {
 
         <div className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary-900 to-transparent rounded-full h-80 w-80 z-20 blur-lg absolute top-3/4 -left-4 transform -translate-x-1/2 -translate-1/2 "></div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 mt-20 gap-5">
-          <div className="flex flex-col items-center gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 mt-20 gap-5" >
+          <div className="flex flex-col items-center gap-5" data-aos="fade-up">
             {cards.map((card) => (
               <div
                 key={card.title}
@@ -109,7 +108,7 @@ const Contact = () => {
             ))}
           </div>
 
-          <form ref={form} onSubmit={sendEmail}>
+          <form ref={form} onSubmit={sendEmail} data-aos="fade-up">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               <div>
                 <input
